@@ -8,6 +8,8 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'elmcast/elm-vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'janko-m/vim-test'
 call plug#end()
 
 let g:elm_format_autosave = 1
@@ -19,6 +21,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/vim-haskell-indent'
+Plugin 'benmills/vimux'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -30,6 +33,13 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 3
 let g:netrw_winsize = 25
+
+let test#strategy = "vimux"
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
 
 "
 " functions
